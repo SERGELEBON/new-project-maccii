@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===== Police Poppins (licence libre OFL) ===== */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/poppins-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Palette officielle MAC.CII (selon ongmaccii.vercel.app) ===== */
+:root {
+  --maccii-violet: #7C3AED;        /* rgb(124,58,237) — couleur primaire */
+  --maccii-violet-dark: #6D28D9;   /* survol */
+  --maccii-violet-deep: #5B21B6;   /* sections sombres, cartes */
+  --maccii-rose: #F43F5E;          /* rgb(244,63,94) — accent rose */
+  --maccii-rose-dark: #E11D48;
+  --maccii-lav: #C4B5FD;           /* accents clairs sur fond sombre */
+  --maccii-gold: #FACC15;          /* étoiles, détails */
+  --maccii-charcoal: #1C2024;      /* pied de page */
+  --maccii-ink: #111827;           /* titres */
+  --maccii-body: #374151;
+  --maccii-gray: #6B7280;
+  --maccii-light: #F9FAFB;
+  --maccii-border: #E5E7EB;
+
+  --background: #ffffff;
+  --foreground: var(--maccii-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--maccii-violet);
+  --color-primary-dark: var(--maccii-violet-dark);
+  --color-primary-deep: var(--maccii-violet-deep);
+  --color-rose: var(--maccii-rose);
+  --color-rose-dark: var(--maccii-rose-dark);
+  --color-lav: var(--maccii-lav);
+  --color-gold: var(--maccii-gold);
+  --color-charcoal: var(--maccii-charcoal);
+  --color-ink: var(--maccii-ink);
+  --color-body: var(--maccii-body);
+  --color-mgray: var(--maccii-gray);
+  --color-mlight: var(--maccii-light);
+  --color-line: var(--maccii-border);
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Poppins', sans-serif;
+  --radius-maccii: 45px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--maccii-body);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Boutons MAC.CII */
+.btn-maccii {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--maccii-violet);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 26px;
+  border-radius: 45px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn-maccii:hover {
+  background: var(--maccii-violet-dark);
+  transform: translateY(-1px);
+}
+
+/* Carrousels — masquer scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Scrollbar custom */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--maccii-violet); border-radius: 5px; }
+
+/* Onglet don flottant */
+.donate-tab {
+  position: fixed;
+  right: 0;
+  top: 45%;
+  z-index: 60;
+  writing-mode: vertical-rl;
+  background: var(--maccii-rose);
+  color: #fff;
+  padding: 18px 10px;
+  border-radius: 8px 0 0 8px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Animation compteurs */
+@keyframes t-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.t-fade-up { animation: t-fade-up 0.6s ease both; }
